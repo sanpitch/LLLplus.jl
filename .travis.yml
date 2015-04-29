@@ -16,7 +16,7 @@ before_install:
 - pip --version
 - pip install --upgrade pip
 - pip install matplotlib
-- git remote add deploy git@github.com:christianpeel/LLLplus.jl.git
+- git remote add deploy git@github.com:sanpitch/LLLplus.jl.git
 - git remote -v
 script:
 - date
