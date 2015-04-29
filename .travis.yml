@@ -12,6 +12,8 @@ before_install:
 - git config user.name "Travis build"
 - git config --global push.default simple
 - apt-get install python-pip
+- python --version
+- pip --version
 - pip install --upgrade pip
 - pip install matplotlib
 - git remote add deploy git@github.com:christianpeel/LLLplus.jl.git
