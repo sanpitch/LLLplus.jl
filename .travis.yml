@@ -3,28 +3,14 @@ language: julia
 notifications:
   email: false
 before_install:
-- openssl aes-256-cbc -K $encrypted_5b34a3804359_key -iv $encrypted_5b34a3804359_iv
-  -in .id_rsa_peelcb.enc -out .id_rsa_peelcb -d
-- chmod 600 .id_rsa_peelcb
-- eval "$(ssh-agent)"
-- ssh-add .id_rsa_peelcb
-- git config user.email "peelcb@gmail.com"
-- git config user.name "Travis build"
-- git config --global push.default simple
 - apt-get install python-pip
 - python --version
 - pip --version
 - pip install --upgrade pip
 - pip install matplotlib
-- git remote add deploy git@github.com:sanpitch/LLLplus.jl.git
-- git remote -v
 script:
 - date
 - julia -e 'include("test/runtests.jl");'
 - julia -e 'include("benchmark/perftest.jl")'
 after_success:
-- git checkout $TRAVIS_BRANCH
-- git status
-- git add benchmark/*.png
-- git commit -m "Performance results via Travis" -m"[skip ci]"
-- git push deploy
+- ls -la benchmark/*.png
