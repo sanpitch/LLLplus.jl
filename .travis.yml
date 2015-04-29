@@ -3,7 +3,7 @@ language: julia
 notifications:
   email: false
 before_install:
-- apt-get install python-pip
+- sudo apt-get install python-pip
 - python --version
 - pip --version
 - pip install --upgrade pip
